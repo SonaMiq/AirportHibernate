@@ -14,8 +14,7 @@ public class Address {
     @OneToOne(mappedBy = "address")
     private Passenger passenger;
 
-    public Address(Long id, String country, String city) {
-        this.id = id;
+    public Address( String country, String city) {
         this.country = country;
         this.city = city;
     }

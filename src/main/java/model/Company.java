@@ -17,9 +17,11 @@ public class Company {
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     private Set<Trip> tripes;
 
-    public Company(Long id, String name, Date date) {
-        this.id = id;
+    public Company(String name, Date date) {
         this.name = name;
         this.date = date;
+    }
+    public Company(){
+
     }
 }

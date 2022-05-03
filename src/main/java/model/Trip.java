@@ -9,11 +9,7 @@ import java.util.Set;
 @Table(name = "trip")
 public class Trip {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long tripNumber;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "company_id")
-    private Company company;
     private String plane;
     @Column(name = "town_from")
     private String townFrom;
@@ -24,9 +20,26 @@ public class Trip {
     @Column(name = "time_In")
     private Time timeIn;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "company_id")
+    private Company company;
+
     @ManyToMany
     @JoinTable(name = "pass_in_trip", joinColumns = @JoinColumn(referencedColumnName = "tripNumber", name = "tripNumber"),
             inverseJoinColumns = @JoinColumn(referencedColumnName = "id", name = "passengerID"))
     private Set<Passenger> passengers;
 
+    public Trip(Long tripNumber,Company company, String plane, String townFrom, String townTo, Time timeOut, Time timeIn) {
+
+        this.tripNumber=tripNumber;
+        this.company = company;
+        this.plane = plane;
+        this.townFrom = townFrom;
+        this.townTo = townTo;
+        this.timeOut = timeOut;
+        this.timeIn = timeIn;
+    }
+    public Trip(){
+
+    }
 }
