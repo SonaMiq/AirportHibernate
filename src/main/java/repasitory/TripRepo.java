@@ -1,13 +1,17 @@
-package dao;
+package repasitory;
 
 import Service.MySessionFactory;
 import model.Trip;
 import org.hibernate.Session;
 
-public class TripDao {
+public class TripRepo {
+    private Session session;
+
+    public TripRepo(){
+        session= MySessionFactory.getFactory().openSession();
+    }
     public void create(Trip trip){
 
-        Session session= MySessionFactory.getFactory().openSession();
         session.beginTransaction();
         session.save(trip);
         session.getTransaction().commit();

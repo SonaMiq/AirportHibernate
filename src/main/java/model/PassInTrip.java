@@ -18,6 +18,11 @@ public class PassInTrip {
 
     private String place;
 
+    public PassInTrip(PassInTripId passInTripId, String place) {
+        this.passInTripId = passInTripId;
+        this.place = place;
+    }
+
     public PassInTrip() {
     }
 
@@ -27,6 +32,12 @@ public class PassInTrip {
         public Long tripNumber;
         public Long passengerID;
         public Date date;
+
+        public PassInTripId(Long tripNumber, Long passengerID, Date date) {
+            this.tripNumber = tripNumber;
+            this.passengerID = passengerID;
+            this.date = date;
+        }
 
         @Override
         public boolean equals(Object o) {

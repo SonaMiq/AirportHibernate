@@ -1,8 +1,8 @@
 package Service;
 
-import dao.CompanyDao;
-import dao.PassengerDao;
-import dao.TripDao;
+import repasitory.CompanyRepo;
+import repasitory.PassengerRepo;
+import repasitory.TripRepo;
 import model.Address;
 import model.Company;
 import model.Passenger;
@@ -10,7 +10,6 @@ import model.Trip;
 
 import java.io.*;
 import java.sql.Date;
-import java.sql.SQLData;
 import java.sql.Time;
 
 public class AddInfo {
@@ -20,7 +19,7 @@ public class AddInfo {
 
     public void addPassenger() {
 
-        PassengerDao passengerDao = new PassengerDao();
+        PassengerRepo passengerDao = new PassengerRepo();
         String[] read = new String[4];
         String s = "";
         try {
@@ -43,7 +42,7 @@ public class AddInfo {
 
     public void addCompany() {
 
-        CompanyDao companyDao = new CompanyDao();
+        CompanyRepo companyDao = new CompanyRepo();
         String[] read;
         String s = "";
         String[] dt;
@@ -66,8 +65,8 @@ public class AddInfo {
     }
 
     public void addTrip() {
-        TripDao tripDao = new TripDao();
-        CompanyDao companyDao = new CompanyDao();
+        TripRepo tripDao = new TripRepo();
+        CompanyRepo companyDao = new CompanyRepo();
         String[] read;
         String s = "";
         try {
