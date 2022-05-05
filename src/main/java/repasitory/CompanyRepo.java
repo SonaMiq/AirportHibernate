@@ -5,13 +5,11 @@ import model.Company;
 import org.hibernate.Session;
 
 public class CompanyRepo {
-    private Session session;
 
-    public CompanyRepo(){
-        this.session = MySessionFactory.getFactory().openSession();
-    }
+
     public void create(Company company) {
 
+        Session session = MySessionFactory.getFactory().openSession();
         session.beginTransaction();
         session.save(company);
         session.getTransaction().commit();

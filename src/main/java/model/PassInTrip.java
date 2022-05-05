@@ -26,8 +26,9 @@ public class PassInTrip {
     public PassInTrip() {
     }
 
+
     @Embeddable
-    private static class PassInTripId implements Serializable {
+    public static class PassInTripId implements Serializable {
 
         public Long tripNumber;
         public Long passengerID;

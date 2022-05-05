@@ -24,4 +24,25 @@ public class Passenger {
         this.address = address;
     }
     public Passenger(){}
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return "Passenger{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
 }
