@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "address")
@@ -9,12 +10,12 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String country;
-    @Column(unique = true,length = 50)
-    private String city;
     @Column(length = 50)
-    @OneToOne(mappedBy = "address")
-    private Passenger passenger;
+    private String country;
+    @Column(length = 50)
+    private String city;
+    @OneToMany(mappedBy = "address")
+    private Set<Passenger> passengers;
 
     public Address( String country, String city) {
         this.country = country;
@@ -41,10 +42,8 @@ public class Address {
     @Override
     public String toString() {
         return "Address{" +
-                "id=" + id +
-                ", country='" + country + '\'' +
+                  "country='" + country + '\'' +
                 ", city='" + city + '\'' +
-                (passenger==null?"null":passenger.toString() )+
                 '}';
     }
 }

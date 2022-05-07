@@ -10,9 +10,8 @@ public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="name_cmp")
+    @Column(length = 50)
     private String name;
-    @Column(name="date_Found")
     private Date date;
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     private Set<Trip> tripes;
@@ -23,5 +22,29 @@ public class Company {
     }
     public Company(){
 
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "name='" + name + '\'' +
+                ", date=" + date +
+                '}';
     }
 }

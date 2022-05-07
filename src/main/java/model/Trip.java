@@ -10,14 +10,15 @@ import java.util.Set;
 public class Trip {
     @Id
     private long tripNumber;
+    @Column(length = 50)
     private String plane;
-    @Column(name = "town_from")
+    @Column(length = 50)
     private String townFrom;
-    @Column(name = "town_to")
+    @Column(length = 50)
     private String townTo;
-    @Column(name = "time_Out")
+    @Column(length = 50)
     private Time timeOut;
-    @Column(name = "time_In")
+    @Column(length = 50)
     private Time timeIn;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -41,5 +42,61 @@ public class Trip {
     }
     public Trip(){
 
+    }
+
+    public void setPlane(String plane) {
+        this.plane = plane;
+    }
+
+    public void setTimeOut(Time timeOut) {
+        this.timeOut = timeOut;
+    }
+
+    public void setTimeIn(Time timeIn) {
+        this.timeIn = timeIn;
+    }
+
+    public void setTownFrom(String townFrom) {
+        this.townFrom = townFrom;
+    }
+
+    public void setTownTo(String townTo) {
+        this.townTo = townTo;
+    }
+
+    public void setTripNumber(long tripNumber) {
+        this.tripNumber = tripNumber;
+    }
+
+    public String getPlane() {
+        return plane;
+    }
+
+    public String getTownFrom() {
+        return townFrom;
+    }
+
+    public String getTownTo() {
+        return townTo;
+    }
+
+    public Time getTimeOut() {
+        return timeOut;
+    }
+
+    public Time getTimeIn() {
+        return timeIn;
+    }
+
+    @Override
+    public String toString() {
+        return "Trip{" +
+                "tripNumber=" + tripNumber +
+                ", plane='" + plane + '\'' +
+                ", townFrom='" + townFrom + '\'' +
+                ", townTo='" + townTo + '\'' +
+                ", timeOut=" + timeOut +
+                ", timeIn=" + timeIn +
+                '}';
     }
 }

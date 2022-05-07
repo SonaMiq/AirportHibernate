@@ -5,7 +5,9 @@ import Service.MySessionFactory;
 import model.PassInTrip;
 import org.hibernate.Session;
 
-public class PassInTripRepo {
+import java.util.List;
+
+public class PassInTripRepo implements CrudRepo<PassInTrip> {
 
 
     public void create(PassInTrip passInTrip) {
@@ -15,6 +17,26 @@ public class PassInTripRepo {
         session.save(passInTrip);
         session.getTransaction().commit();
         session.close();
+    }
+
+    @Override
+    public PassInTrip read(Long id) {
+        return null;
+    }
+
+    @Override
+    public void update(Long id, PassInTrip passInTrip) {
+
+    }
+
+    @Override
+    public void delete(Long id) {
+
+    }
+
+    @Override
+    public List<PassInTrip> getAll() {
+        return null;
     }
 
 }

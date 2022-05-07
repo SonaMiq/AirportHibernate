@@ -9,10 +9,11 @@ public class Passenger {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="name_psg")
+    @Column(length = 50)
     private String name;
+    @Column(length = 50)
     private String phone;
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id",
             foreignKey = @ForeignKey(name = "contract_address_fk"))
     private Address address;
@@ -37,11 +38,22 @@ public class Passenger {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     @Override
     public String toString() {
         return "Passenger{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                " name='" + name + '\'' +
                 ", phone='" + phone + '\'' +
                 '}';
     }

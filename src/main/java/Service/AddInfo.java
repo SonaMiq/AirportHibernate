@@ -77,7 +77,7 @@ public class AddInfo {
                 read = s.split(",");
                 String time_out = read[5].split(" ")[1].substring(0, 8);
                 String time_in = read[6].split(" ")[1].substring(0, 8);
-                tripRepo.create(new Trip(Long.valueOf(read[0]), companyRepo.get(Long.valueOf(read[1])),
+                tripRepo.create(new Trip(Long.valueOf(read[0]), companyRepo.read(Long.valueOf(read[1])),
                         read[2], read[3], read[4], Time.valueOf(time_out), Time.valueOf(time_in)));
             }
         } catch (FileNotFoundException e) {
